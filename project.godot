@@ -52,6 +52,14 @@ _global_script_class_icons={
 
 config/name="Jungle Navigator"
 
+[autoload]
+
+DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
