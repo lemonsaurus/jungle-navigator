@@ -1,6 +1,6 @@
 extends Node
 
-signal start_game
+signal question_room_orange
 
 
 func _ready():
@@ -14,10 +14,6 @@ func _on_start_game(value):
 	"""Runs when the intro dialogue is over"""
 	# Make dungeon room indicator visible, and wait a few seconds
 	
-	
-	# Now move the indicator to the next room.
-	print("Hi mom! " + value)
-	
-	# Now we trigger the dialogue for the first room.
-	pass
+	# Emit the signal to start the next room
+	emit_signal("question_room_orange")
 	
