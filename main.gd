@@ -1,16 +1,21 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal start_game
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var dialog = Dialogic.start("intro.json")
-	add_child(dialog)
+	"""This runs when the game starts up."""
+	var intro = Dialogic.start("intro.json")
+	add_child(intro)
+	intro.connect("dialogic_signal", self, '_on_start_game')
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _on_start_game(value):
+	"""Runs when the intro dialogue is over"""
+	# Spawn and move the dungeon room indicator
+	# to the first room
+	print("Hi mom! " + value)
+	
+	# Now show the dialogue for this room
+	pass
+	
