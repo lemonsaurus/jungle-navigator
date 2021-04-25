@@ -13,9 +13,6 @@ func _on_room_start():
 
 func _on_start_game(value):
 	"""Runs when the intro dialogue is over"""
-	# Randomize the internal state of the RNG.
-	randomize()
-	
 	# Reset all player attributes, in case this is a retry.
 	emit_signal("reset_player")
 	

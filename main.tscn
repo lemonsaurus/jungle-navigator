@@ -33,6 +33,9 @@ stream = ExtResource( 12 )
 volume_db = -12.0
 autoplay = true
 
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 14 )
+
 [node name="Scenes" type="Node" parent="."]
 
 [node name="IntroRoom" type="Node" parent="Scenes"]
@@ -67,6 +70,8 @@ script = ExtResource( 11 )
 
 [connection signal="intro_room" from="." to="Scenes/IntroRoom" method="_on_room_start"]
 [connection signal="question_room_orange" from="Scenes/IntroRoom" to="Scenes/QuestionRoomOrange" method="_on_room_start"]
+[connection signal="reset_player" from="Scenes/IntroRoom" to="Player" method="_on_reset_player"]
+[connection signal="hurt_player" from="Scenes/QuestionRoomOrange" to="Player" method="_on_hurt_player"]
 [connection signal="skull_room_bottom" from="Scenes/QuestionRoomOrange" to="Scenes/SkullRoomBottom" method="_on_room_start"]
 [connection signal="treasure_room_top" from="Scenes/QuestionRoomOrange" to="Scenes/TreasureRoomTop" method="_on_room_start"]
 [connection signal="question_room_green" from="Scenes/TreasureRoomTop" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
