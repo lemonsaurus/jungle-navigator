@@ -1,12 +1,23 @@
+"""
+This room will invert your health situation.
+
+- If you're above 50hp, it cuts your health down to 45hp.
+- If you're below 50hp, it'll heal you to above 70hp.
+"""
 extends Node
 
-signal start_room
+signal treasure_room_bottom
+signal skull_room_top
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	"""Called when the game starts"""
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_room_start():
+	"""Called when this room is entered"""
+	pass
+	
+	# NOTE: Don't allow player to go to TreasureRoomBottom
+	#       if they've already been there!

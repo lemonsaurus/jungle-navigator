@@ -1,16 +1,17 @@
+"""
+Gives you 80 gold and a funny hat.
+"""
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal question_room_green
+signal question_room_pink
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	"""Called when the game starts"""
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_room_start():
+	"""Called when this room is entered"""
+	pass

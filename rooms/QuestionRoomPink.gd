@@ -1,16 +1,22 @@
+"""
+A room that instantly kills you, 
+unless you the Golden Avacado.
+
+If you have that, you can sell it for 100 gold.
+"""
+
 extends Node
 
+signal treasure_room_top
+signal question_room_green
+signal game_over_room
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	"""Called when the game starts"""
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_room_start():
+	"""Called when this room is entered"""
+	pass
