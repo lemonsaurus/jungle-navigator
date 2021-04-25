@@ -18,4 +18,12 @@ func _ready():
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	pass
+	var outcome = randi() % 3
+	
+	match outcome:
+		0:
+			print("THE FIRST OUTCOME")
+		1:
+			print("THE SECOND OUTCOME")
+		2:
+			print("THE THIRD OUTCOME")
