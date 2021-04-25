@@ -1,29 +1,40 @@
 """
-A room with three possible outcomes:
-- You are attacked, and lose 45hp
-- You find 40 gold
-- Nothing really happens, just triggers some dialogue.
+A room with a random event.
 """
 
 extends Node
 
 signal treasure_room_top
 signal skull_room_bottom
-
-
-func _ready():
-	"""Called when the game starts"""
-	pass
+signal hurt_player (hurt_value)
+signal pay_player (pay_value)
 
 
 func _on_room_start():
 	"""Called when this room is entered"""
+	randomize()
 	var outcome = randi() % 3
+	var scene = null
 	
 	match outcome:
 		0:
-			print("THE FIRST OUTCOME")
+			# You are attacked and lose 45hp
+			emit_signal("hurt_player", 45)
+			scene = Dialogic.start("question_room_orange_fight.json")
+			
 		1:
-			print("THE SECOND OUTCOME")
+			# You find 40 gold, and a Banana Scepter
+			emit_signal("pay_player", 40)
+			scene = Dialogic.start("question_room_orange_treasure.json")
+			
 		2:
-			print("THE THIRD OUTCOME")
+			# Triggers harmless expositional dialogue
+			scene = Dialogic.start("question_room_orange_neutral.json")
+			
+	add_child(scene)
+	scene.connect("dialogic_signal", self, '_handle_dialogic_event')
+	
+	
+func _handle_dialogic_event(next_room):
+	"""Handle a signal created by Dialogic"""
+	emit_signal(next_room)
