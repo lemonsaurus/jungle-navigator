@@ -14,25 +14,25 @@ func _on_room_start():
 	"""Called when this room is entered"""
 	randomize()
 	var outcome = randi() % 3
-	var scene = null
+	var dialog = null
 	
 	match outcome:
 		0:
 			# You are attacked and lose 45hp
 			emit_signal("hurt_player", 45)
-			scene = Dialogic.start("question_room_orange_fight.json")
+			dialog = Dialogic.start("question_room_orange_fight.json")
 			
 		1:
 			# You find 40 gold, and a Banana Scepter
 			emit_signal("pay_player", 40)
-			scene = Dialogic.start("question_room_orange_treasure.json")
+			dialog = Dialogic.start("question_room_orange_treasure.json")
 			
 		2:
 			# Triggers harmless expositional dialogue
-			scene = Dialogic.start("question_room_orange_neutral.json")
+			dialog = Dialogic.start("question_room_orange_neutral.json")
 			
-	add_child(scene)
-	scene.connect("dialogic_signal", self, '_handle_dialogic_event')
+	add_child(dialog)
+	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
 	
 	
 func _handle_dialogic_event(next_room):
