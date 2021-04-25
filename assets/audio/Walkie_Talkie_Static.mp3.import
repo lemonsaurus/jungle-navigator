@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Walkie_Talkie_Static.mp3-ea6fd2b835e83f5c34d5fecf5f3fa159.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Walkie_Talkie_Static.mp3"
+dest_files=[ "res://.import/Walkie_Talkie_Static.mp3-ea6fd2b835e83f5c34d5fecf5f3fa159.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

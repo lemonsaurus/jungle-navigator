@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Walkie_Talkie_Activate.mp3-d039fbca8941694948df8ff747d0ba6b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Walkie_Talkie_Activate.mp3"
+dest_files=[ "res://.import/Walkie_Talkie_Activate.mp3-d039fbca8941694948df8ff747d0ba6b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

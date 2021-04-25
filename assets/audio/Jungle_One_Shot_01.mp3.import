@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jungle_One_Shot_01.mp3-dddbc3fc454e32a6cc41006d15bfb7f7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Jungle_One_Shot_01.mp3"
+dest_files=[ "res://.import/Jungle_One_Shot_01.mp3-dddbc3fc454e32a6cc41006d15bfb7f7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
