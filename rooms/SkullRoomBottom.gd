@@ -8,12 +8,29 @@ signal question_room_pink
 signal treasure_room_bottom
 signal game_over_room
 
-
-func _ready():
-	"""Called when the game starts"""
-	pass
+var dead
+var dialog
 
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	pass
+	dead = false  # We'll set this back to false, since it might be a retry.
+	emit_signal("hurt_player", 55)
+	
+	if dead:
+		emit_signal("game_over_room")
+		return
+	else:
+		dialog = Dialogic.start("skull_room_bottom.json")
+		
+	add_child(dialog)
+	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
+
+	
+func _handle_dialogic_event(next_room):
+	"""Handle a signal created by Dialogic"""
+	emit_signal(next_room)
+
+
+func _on_dead():
+	dead = true
