@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 signal start_game
 
@@ -12,10 +12,12 @@ func _ready():
 
 func _on_start_game(value):
 	"""Runs when the intro dialogue is over"""
-	# Spawn and move the dungeon room indicator
-	# to the first room
+	# Make dungeon room indicator visible, and wait a few seconds
+	
+	
+	# Now move the indicator to the next room.
 	print("Hi mom! " + value)
 	
-	# Now show the dialogue for this room
+	# Now we trigger the dialogue for the first room.
 	pass
 	
