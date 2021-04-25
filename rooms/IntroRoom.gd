@@ -1,6 +1,7 @@
 extends Node
 
 signal question_room_orange
+signal reset_player
 
 
 func _on_room_start():
@@ -16,6 +17,7 @@ func _on_start_game(value):
 	randomize()
 	
 	# Reset all player attributes, in case this is a retry.
+	emit_signal("reset_player")
 	
 	# Make dungeon room indicator visible, and wait a few seconds
 	
