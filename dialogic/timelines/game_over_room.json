@@ -1,1 +1,1 @@
-{"events":[],"metadata":{"dialogic-version":"1.0","file":"game_over_room.json","name":"GameOverRoom"}}
+{"events":[{"options":[],"question":"Game over! Wanna try again?"},{"choice":"One more time."},{"emit_signal":"retry"},{"choice":"No way!"},{"emit_signal":"quit"},{"endbranch":""}],"metadata":{"dialogic-version":"1.0","file":"game_over_room.json","name":"GameOverRoom"}}
