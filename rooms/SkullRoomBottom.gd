@@ -16,7 +16,7 @@ var dialog
 func _on_room_start():
 	"""Called when this room is entered"""
 	emit_signal("navigate", get_position())  # Move character on map
-	
+
 	dead = false  # We'll set this back to false, since it might be a retry.
 	emit_signal("hurt_player", 55)
 	
@@ -29,10 +29,13 @@ func _on_room_start():
 	add_child(dialog)
 	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
 
-	
+
 func _handle_dialogic_event(next_room):
 	"""Handle a signal created by Dialogic"""
-	emit_signal(next_room)
+	if next_room == "question_room_pink":
+		emit_signal(next_room, "skull")
+	else:
+		emit_signal(next_room)
 
 
 func _on_dead():

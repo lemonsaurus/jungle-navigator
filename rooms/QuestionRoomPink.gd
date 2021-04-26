@@ -18,6 +18,20 @@ func _ready():
 	pass
 
 
-func _on_room_start():
+func _on_room_start(origin: String):
 	"""Called when this room is entered"""
-	emit_signal("navigate", get_position())  # Move character on map
+	emit_signal("navigate", get_position(), true, origin)  # Move character on map
+
+
+func _visit_pink():
+	"""Called if the user tries to visit the pink room for the first time."""
+	# TODO: Implement
+
+
+func _dont_visit_pink(origin: String):
+	"""Called if the user tries to revisit the pink room."""
+	if origin == "skull":
+		pass
+	elif origin == "treasure":
+		pass
+	# TODO: Implement

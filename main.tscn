@@ -86,6 +86,8 @@ script = ExtResource( 11 )
 
 [connection signal="intro_room" from="." to="Scenes/IntroRoom" method="_on_room_start"]
 [connection signal="dead" from="Player" to="Scenes/SkullRoomBottom" method="_on_dead"]
+[connection signal="pink_error" from="Player" to="Scenes/QuestionRoomPink" method="_dont_visit_pink"]
+[connection signal="pink_ok" from="Player" to="Scenes/QuestionRoomPink" method="_visit_pink"]
 [connection signal="navigate" from="Scenes/IntroRoom" to="Player" method="_on_room_enter"]
 [connection signal="question_room_orange" from="Scenes/IntroRoom" to="Scenes/QuestionRoomOrange" method="_on_room_start"]
 [connection signal="reset_player" from="Scenes/IntroRoom" to="Player" method="_on_reset_player"]
