@@ -20,7 +20,9 @@ func _ready():
 
 func _on_room_start(origin: String):
 	"""Called when this room is entered"""
-	emit_signal("navigate", get_position(), true, origin)  # Move character on map
+	# Move character on map
+	emit_signal("navigate", get_position(), true, origin)
+	yield(get_tree().create_timer(1.5), "timeout")
 
 
 func _visit_pink():

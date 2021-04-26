@@ -16,4 +16,6 @@ func _ready():
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	emit_signal("navigate", get_position())  # Move character on map
+	# Move character on map
+	emit_signal("navigate", get_position())  
+	yield(get_tree().create_timer(1.5), "timeout")

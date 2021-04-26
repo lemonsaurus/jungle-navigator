@@ -21,4 +21,6 @@ func _on_room_start():
 	# NOTE: Don't allow player to go to TreasureRoomBottom
 	#       if they've already been there!
 	
-	emit_signal("navigate", get_position())  # Move character on map
+	# Move character on map
+	emit_signal("navigate", get_position())  
+	yield(get_tree().create_timer(1.5), "timeout")

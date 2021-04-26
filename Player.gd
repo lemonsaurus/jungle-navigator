@@ -37,4 +37,10 @@ func _on_room_enter(position: Vector2, pink: bool = false, origin: String = ""):
 
 		visited_pink = true
 
-	$Map_character.position = position
+	var tween = $Tween
+	tween.interpolate_property(
+		$Map_character, "position",	
+		$Map_character.position, position,
+		0.75, Tween.TRANS_QUAD, Tween.EASE_IN_OUT
+	)
+	tween.start()

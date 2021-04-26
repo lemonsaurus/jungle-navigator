@@ -15,7 +15,9 @@ func _ready():
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	emit_signal("navigate", get_position())  # Move character on map
+	# Move character on map
+	emit_signal("navigate", get_position())  
+	yield(get_tree().create_timer(1.5), "timeout")
 	
 	emit_signal("pay_player", 80)
 
@@ -25,7 +27,7 @@ func _on_room_start():
 
 func _handle_dialogic_event(next_room):
 	"""Handle a signal created by Dialogic"""
-    if next_room == "question_room_pink":
+	if next_room == "question_room_pink":
 		emit_signal(next_room, "treasure")
 	else:
 		emit_signal(next_room)

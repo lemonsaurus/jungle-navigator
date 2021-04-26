@@ -14,7 +14,7 @@
 [ext_resource path="res://assets/audio/Jungle_Loop.mp3" type="AudioStream" id=12]
 [ext_resource path="res://main.gd" type="Script" id=13]
 [ext_resource path="res://Player.gd" type="Script" id=14]
-[ext_resource path="res://assets/Map_character.png" type="Texture" id=15]
+[ext_resource path="res://assets/map_character.png" type="Texture" id=15]
 
 [node name="Root" type="Node"]
 script = ExtResource( 13 )
@@ -38,18 +38,19 @@ autoplay = true
 script = ExtResource( 14 )
 
 [node name="Map_character" type="Sprite" parent="Player"]
-position = Vector2( 499.772, -62.2339 )
-scale = Vector2( 0.0927315, 0.0927315 )
+position = Vector2( 265, 425 )
 texture = ExtResource( 15 )
+
+[node name="Tween" type="Tween" parent="Player"]
 
 [node name="Scenes" type="Node" parent="."]
 
 [node name="IntroRoom" type="Position2D" parent="Scenes"]
-position = Vector2( 265, 423.853 )
+position = Vector2( 265, 425 )
 script = ExtResource( 3 )
 
 [node name="QuestionRoomOrange" type="Position2D" parent="Scenes"]
-position = Vector2( 347.832, 415.031 )
+position = Vector2( 343.832, 422.031 )
 script = ExtResource( 5 )
 
 [node name="TreasureRoomTop" type="Position2D" parent="Scenes"]
@@ -57,15 +58,15 @@ position = Vector2( 429.295, 363.429 )
 script = ExtResource( 9 )
 
 [node name="SkullRoomBottom" type="Position2D" parent="Scenes"]
-position = Vector2( 428.516, 504.93 )
+position = Vector2( 428.516, 506.71 )
 script = ExtResource( 2 )
 
 [node name="QuestionRoomPink" type="Position2D" parent="Scenes"]
-position = Vector2( 449.492, 416.529 )
+position = Vector2( 446.822, 428.987 )
 script = ExtResource( 10 )
 
 [node name="QuestionRoomGreen" type="Position2D" parent="Scenes"]
-position = Vector2( 524.408, 346.109 )
+position = Vector2( 524.408, 355.898 )
 script = ExtResource( 8 )
 
 [node name="TreasureRoomBottom" type="Position2D" parent="Scenes"]
@@ -73,7 +74,7 @@ position = Vector2( 524.407, 449.492 )
 script = ExtResource( 7 )
 
 [node name="SkullRoomTop" type="Position2D" parent="Scenes"]
-position = Vector2( 627.791, 412.034 )
+position = Vector2( 629.571, 412.924 )
 script = ExtResource( 4 )
 
 [node name="TempleRoom" type="Position2D" parent="Scenes"]

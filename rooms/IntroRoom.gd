@@ -10,7 +10,6 @@ func _on_room_start():
 	var intro = Dialogic.start("intro.json")
 	add_child(intro)
 	intro.connect("dialogic_signal", self, '_on_start_game')
-	emit_signal("navigate", get_position())  # Move character on map
 
 
 func _on_start_game(value):
