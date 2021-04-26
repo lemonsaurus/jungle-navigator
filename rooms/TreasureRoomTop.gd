@@ -30,6 +30,7 @@ func _on_room_start():
 
 	add_child(dialog)
 	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
+	visited = true
 
 
 func _handle_dialogic_event(next_room):

@@ -202,7 +202,4 @@ __meta__ = {
 [connection signal="navigate" from="Scenes/SkullRoomTop" to="Player" method="_on_room_enter"]
 [connection signal="temple_room" from="Scenes/SkullRoomTop" to="Scenes/TempleRoom" method="_on_room_start"]
 [connection signal="navigate" from="Scenes/TempleRoom" to="Player" method="_on_room_enter"]
-[connection signal="retry" from="Scenes/TempleRoom" to="Scenes/IntroRoom" method="_on_room_start"]
-[connection signal="navigate" from="Scenes/GameOverRoom" to="Player" method="_on_room_enter"]
-[connection signal="retry" from="Scenes/GameOverRoom" to="Scenes/IntroRoom" method="_on_room_start"]
 [connection signal="value_changed" from="Hud/HealthBar" to="Hud/HealthBar" method="_on_value_changed"]
