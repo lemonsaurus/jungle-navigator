@@ -1,1 +1,1 @@
-{"events":[],"metadata":{"dialogic-version":"1.0","file":"treasure_room_bottom_choice.json","name":"TreasureRoomBottomChoice"}}
+{"events":[{"options":[],"question":"Where to, boss?"},{"choice":"West is best, to the pink questionmark!"},{"emit_signal":"question_room_pink"},{"choice":"Head north, to the green questionmark!"},{"emit_signal":"question_room_green"},{"choice":"Head on over to dangertown!"},{"emit_signal":"skull_room_top"},{"endbranch":""}],"metadata":{"dialogic-version":"1.0","file":"treasure_room_bottom_choice.json","name":"TreasureRoomBottomChoice"}}

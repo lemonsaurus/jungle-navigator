@@ -1,1 +1,1 @@
-{"events":[],"metadata":{"dialogic-version":"1.0","file":"question_room_green_choice.json","name":"QuestionRoomGreenChoice"}}
+{"events":[{"options":[],"question":"Where next?"},{"choice":"Head on down to treasure-town!"},{"emit_signal":"treasure_room_bottom"},{"choice":"Go east, towards danger!"},{"emit_signal":"skull_room_top"},{"endbranch":""}],"metadata":{"dialogic-version":"1.0","file":"question_room_green_choice.json","name":"QuestionRoomGreenChoice"}}

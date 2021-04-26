@@ -1,6 +1,5 @@
 extends Node
 
-signal dead
 signal inventory_updated (inventory)
 signal health_updated (new_health)
 signal gold_updated (new_gold)
@@ -15,9 +14,6 @@ func _on_hurt_player(hurt_value):
 	self.health = clamp(self.health, 0, 100)
 	
 	emit_signal("health_updated", self.health)
-
-	if self.health == 0:
-		emit_signal("dead")
 		
 
 func _on_heal_player(heal_value):
