@@ -11,13 +11,20 @@ var inventory = []
 
 
 func _on_hurt_player(hurt_value):
-	health -= hurt_value
-	health = clamp(health, 0, 100)
+	self.health -= hurt_value
+	self.health = clamp(self.health, 0, 100)
 	
-	emit_signal("health_updated", health)
+	emit_signal("health_updated", self.health)
 
-	if health == 0:
+	if self.health == 0:
 		emit_signal("dead")
+		
+
+func _on_heal_player(heal_value):
+	self.health += heal_value
+	self.health = clamp(self.health, 0, 100)
+	
+	emit_signal("health_updated", self.health)
 
 
 func _on_pay_player(pay_value):
@@ -25,7 +32,7 @@ func _on_pay_player(pay_value):
 	emit_signal("gold_updated", gold)
 
 
-func _on_room_enter(position: Vector2, pink: bool = false, origin: String = ""):
+func _on_room_enter(position: Vector2):
 	var tween = $Tween
 	tween.interpolate_property(
 		$Map_character, "position",

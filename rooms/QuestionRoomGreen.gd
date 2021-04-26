@@ -9,18 +9,41 @@ extends Position2D
 signal navigate
 signal treasure_room_bottom
 signal skull_room_top
+signal hurt_player (hurt_value)
+signal heal_player (heal_value)
 
-
-func _ready():
-	"""Called when the game starts"""
-	pass
+onready var player = $"../../Player"
+var dialog
+var visited = false
 
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	# NOTE: Don't allow player to go to TreasureRoomBottom
-	#       if they've already been there!
-	
 	# Move character on map
 	emit_signal("navigate", get_position())  
 	yield(get_tree().create_timer(1.5), "timeout")
+	
+	# Decide what to do based on health.
+	if visited:
+		dialog = Dialogic.start("question_room_green_choice.json")
+	elif player.health > 50:
+		dialog = Dialogic.start("question_room_green_hurt.json")
+	elif player.health <= 50:
+		dialog = Dialogic.start("question_room_green_heal.json")
+		
+	# Start the dialog!
+	add_child(dialog)
+	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
+	visited = true
+
+
+func _handle_dialogic_event(signal_):
+	"""Handle a signal created by Dialogic"""
+	if signal_ == "hurt":
+		emit_signal("hurt_player", player.health - 45)
+	elif signal_ == "heal":
+		emit_signal("heal_player", 55 - player.health)
+	else:
+		# Navigate to next room
+		emit_signal(signal_)
+

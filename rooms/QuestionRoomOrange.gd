@@ -17,7 +17,7 @@ func _on_room_start():
 	# Move character on map
 	emit_signal("navigate", get_position())
 	yield(get_tree().create_timer(1.5), "timeout")
-	
+
 	randomize()
 	var outcome = randi() % 3
 	var dialog = null
@@ -39,12 +39,12 @@ func _on_room_start():
 	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
 
 
-func _handle_dialogic_event(name):
+func _handle_dialogic_event(signal_):
 	"""Handle a signal created by Dialogic"""
-	if name == "hurt":
+	if signal_ == "hurt":
 		emit_signal("hurt_player", 45)
-	elif name == "gold":
+	elif signal_ == "gold":
 		emit_signal("pay_player", 40)
 	else:
 		# Navigate to next room
-		emit_signal(name)
+		emit_signal(signal_)
