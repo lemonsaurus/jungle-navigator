@@ -159,7 +159,6 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="Hud/Coins/Gold"]
 
-[connection signal="health_change" from="." to="Hud/HealthBar" method="update_health"]
 [connection signal="intro_room" from="." to="Scenes/IntroRoom" method="_on_room_start"]
 [connection signal="dead" from="Player" to="Scenes/SkullRoomBottom" method="_on_dead"]
 [connection signal="gold_updated" from="Player" to="Hud/Coins/Gold" method="_on_gold_updated"]
@@ -193,7 +192,6 @@ __meta__ = {
 [connection signal="question_room_green" from="Scenes/TreasureRoomBottom" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomBottom" to="Scenes/QuestionRoomPink" method="_on_room_start"]
 [connection signal="skull_room_top" from="Scenes/TreasureRoomBottom" to="Scenes/SkullRoomTop" method="_on_room_start"]
-[connection signal="update_inventory" from="Scenes/TreasureRoomBottom" to="Player" method="_on_update_inventory"]
 [connection signal="game_over_room" from="Scenes/SkullRoomTop" to="Scenes/GameOverRoom" method="_on_room_start"]
 [connection signal="navigate" from="Scenes/SkullRoomTop" to="Player" method="_on_room_enter"]
 [connection signal="temple_room" from="Scenes/SkullRoomTop" to="Scenes/TempleRoom" method="_on_room_start"]

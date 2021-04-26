@@ -11,14 +11,9 @@ signal navigate
 signal retry
 
 
-func _ready():
-	"""Called when the game starts"""
-	pass
-
-
 func _on_room_start():
 	"""Called when this room is entered"""
 	emit_signal("navigate", get_position())  # Move character on map
 	
-	# Restart the game!
-	#get_tree().reload_current_scene()
+	# Play the death sequence
+	get_tree().change_scene("res://death.tscn")
