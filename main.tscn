@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/Main_scene.png" type="Texture" id=1]
 [ext_resource path="res://rooms/SkullRoomBottom.gd" type="Script" id=2]
@@ -15,6 +15,14 @@
 [ext_resource path="res://main.gd" type="Script" id=13]
 [ext_resource path="res://Player.gd" type="Script" id=14]
 [ext_resource path="res://assets/map_character.png" type="Texture" id=15]
+[ext_resource path="res://Healthbar.gd" type="Script" id=16]
+[ext_resource path="res://assets/healthbar/texture.png" type="Texture" id=17]
+[ext_resource path="res://assets/healthbar/background.png" type="Texture" id=18]
+[ext_resource path="res://assets/healthbar/border.png" type="Texture" id=19]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.229299, 0.624204, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.917647, 0.192157, 0.219608, 1, 0.917969, 0.863957, 0.0537872, 1, 0.101961, 0.662745, 0.427451, 1 )
 
 [node name="Root" type="Node"]
 script = ExtResource( 13 )
@@ -85,8 +93,27 @@ script = ExtResource( 6 )
 position = Vector2( 499.67, -61.7797 )
 script = ExtResource( 11 )
 
+[node name="Hud" type="Node" parent="."]
+
+[node name="HealthBar" type="TextureProgress" parent="Hud"]
+margin_right = 500.0
+margin_bottom = 124.0
+texture_under = ExtResource( 18 )
+texture_over = ExtResource( 19 )
+texture_progress = ExtResource( 17 )
+tint_under = Color( 0.227451, 0.72549, 0.584314, 0.423529 )
+tint_over = Color( 0.239216, 0.94902, 0.686275, 1 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+gradient = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="Hud/HealthBar"]
+
+[connection signal="health_change" from="." to="Hud/HealthBar" method="update_health"]
 [connection signal="intro_room" from="." to="Scenes/IntroRoom" method="_on_room_start"]
-[connection signal="dead" from="Player" to="Scenes/SkullRoomBottom" method="_on_dead"]
+[connection signal="health_change" from="Player" to="Hud/HealthBar" method="update_health"]
 [connection signal="pink_error" from="Player" to="Scenes/QuestionRoomPink" method="_dont_visit_pink"]
 [connection signal="pink_ok" from="Player" to="Scenes/QuestionRoomPink" method="_visit_pink"]
 [connection signal="navigate" from="Scenes/IntroRoom" to="Player" method="_on_room_enter"]
@@ -100,6 +127,7 @@ script = ExtResource( 11 )
 [connection signal="question_room_green" from="Scenes/TreasureRoomTop" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomTop" to="." method="_on_room_start"]
 [connection signal="game_over_room" from="Scenes/SkullRoomBottom" to="Scenes/GameOverRoom" method="_on_room_start"]
+[connection signal="hurt_player" from="Scenes/SkullRoomBottom" to="Player" method="_on_hurt_player"]
 [connection signal="navigate" from="Scenes/SkullRoomBottom" to="Player" method="_on_room_enter"]
 [connection signal="question_room_pink" from="Scenes/SkullRoomBottom" to="Scenes/QuestionRoomPink" method="_on_room_start"]
 [connection signal="treasure_room_bottom" from="Scenes/SkullRoomBottom" to="Scenes/TreasureRoomBottom" method="_on_room_start"]
@@ -121,3 +149,5 @@ script = ExtResource( 11 )
 [connection signal="retry" from="Scenes/TempleRoom" to="Scenes/IntroRoom" method="_on_room_start"]
 [connection signal="navigate" from="Scenes/GameOverRoom" to="Player" method="_on_room_enter"]
 [connection signal="retry" from="Scenes/GameOverRoom" to="Scenes/IntroRoom" method="_on_room_start"]
+[connection signal="dead" from="Hud/HealthBar" to="Scenes/GameOverRoom" method="_on_dead"]
+[connection signal="value_changed" from="Hud/HealthBar" to="Hud/HealthBar" method="_on_value_changed"]

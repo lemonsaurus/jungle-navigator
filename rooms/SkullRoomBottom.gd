@@ -8,6 +8,7 @@ signal navigate
 signal question_room_pink
 signal treasure_room_bottom
 signal game_over_room
+signal hurt_player (hurt_value)
 
 var dead
 var dialog

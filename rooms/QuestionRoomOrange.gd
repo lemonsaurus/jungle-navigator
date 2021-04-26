@@ -14,17 +14,16 @@ signal pay_player (pay_value)
 func _on_room_start():
 	"""Called when this room is entered"""
 	# Move character on map
-	emit_signal("navigate", get_position())  
+	emit_signal("navigate", get_position())
 	yield(get_tree().create_timer(1.5), "timeout")
 	
 	randomize()
 	var outcome = randi() % 3
 	var dialog = null
-	
+
 	match outcome:
 		0:
 			# You are attacked and lose 45hp
-			emit_signal("hurt_player", 45)
 			dialog = Dialogic.start("question_room_orange_fight.json")
 			
 		1:
@@ -38,8 +37,12 @@ func _on_room_start():
 			
 	add_child(dialog)
 	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
-	
-	
-func _handle_dialogic_event(next_room):
+
+
+func _handle_dialogic_event(name):
 	"""Handle a signal created by Dialogic"""
-	emit_signal(next_room)
+	if name == "hurt":
+		emit_signal("hurt_player", 45)
+	else:
+		# Navigate to next room
+		emit_signal(name)
