@@ -2,8 +2,9 @@
 This room deals 55 hitpoints of damage. Ouch!
 """
 
-extends Node
+extends Position2D
 
+signal navigate
 signal question_room_pink
 signal treasure_room_bottom
 signal game_over_room
@@ -14,6 +15,8 @@ var dialog
 
 func _on_room_start():
 	"""Called when this room is entered"""
+	emit_signal("navigate", get_position())  # Move character on map
+	
 	dead = false  # We'll set this back to false, since it might be a retry.
 	emit_signal("hurt_player", 55)
 	

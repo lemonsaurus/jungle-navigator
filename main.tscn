@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/Main_scene.png" type="Texture" id=1]
 [ext_resource path="res://rooms/SkullRoomBottom.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/audio/Jungle_Loop.mp3" type="AudioStream" id=12]
 [ext_resource path="res://main.gd" type="Script" id=13]
 [ext_resource path="res://Player.gd" type="Script" id=14]
+[ext_resource path="res://assets/Map_character.png" type="Texture" id=15]
 
 [node name="Root" type="Node"]
 script = ExtResource( 13 )
@@ -36,59 +37,84 @@ autoplay = true
 [node name="Player" type="Node" parent="."]
 script = ExtResource( 14 )
 
+[node name="Map_character" type="Sprite" parent="Player"]
+position = Vector2( 499.772, -62.2339 )
+scale = Vector2( 0.0927315, 0.0927315 )
+texture = ExtResource( 15 )
+
 [node name="Scenes" type="Node" parent="."]
 
-[node name="IntroRoom" type="Node" parent="Scenes"]
+[node name="IntroRoom" type="Position2D" parent="Scenes"]
+position = Vector2( 265, 423.853 )
 script = ExtResource( 3 )
 
-[node name="QuestionRoomOrange" type="Node" parent="Scenes"]
+[node name="QuestionRoomOrange" type="Position2D" parent="Scenes"]
+position = Vector2( 347.832, 415.031 )
 script = ExtResource( 5 )
 
-[node name="TreasureRoomTop" type="Node" parent="Scenes"]
+[node name="TreasureRoomTop" type="Position2D" parent="Scenes"]
+position = Vector2( 429.295, 363.429 )
 script = ExtResource( 9 )
 
-[node name="SkullRoomBottom" type="Node" parent="Scenes"]
+[node name="SkullRoomBottom" type="Position2D" parent="Scenes"]
+position = Vector2( 428.516, 504.93 )
 script = ExtResource( 2 )
 
-[node name="QuestionRoomPink" type="Node" parent="Scenes"]
+[node name="QuestionRoomPink" type="Position2D" parent="Scenes"]
+position = Vector2( 449.492, 416.529 )
 script = ExtResource( 10 )
 
-[node name="QuestionRoomGreen" type="Node" parent="Scenes"]
+[node name="QuestionRoomGreen" type="Position2D" parent="Scenes"]
+position = Vector2( 524.408, 346.109 )
 script = ExtResource( 8 )
 
-[node name="TreasureRoomBottom" type="Node" parent="Scenes"]
+[node name="TreasureRoomBottom" type="Position2D" parent="Scenes"]
+position = Vector2( 524.407, 449.492 )
 script = ExtResource( 7 )
 
-[node name="SkullRoomTop" type="Node" parent="Scenes"]
+[node name="SkullRoomTop" type="Position2D" parent="Scenes"]
+position = Vector2( 627.791, 412.034 )
 script = ExtResource( 4 )
 
-[node name="TempleRoom" type="Node" parent="Scenes"]
+[node name="TempleRoom" type="Position2D" parent="Scenes"]
+position = Vector2( 716.191, 410.536 )
 script = ExtResource( 6 )
 
-[node name="GameOverRoom" type="Node" parent="Scenes"]
+[node name="GameOverRoom" type="Position2D" parent="Scenes"]
+position = Vector2( 499.67, -61.7797 )
 script = ExtResource( 11 )
 
 [connection signal="intro_room" from="." to="Scenes/IntroRoom" method="_on_room_start"]
 [connection signal="dead" from="Player" to="Scenes/SkullRoomBottom" method="_on_dead"]
+[connection signal="navigate" from="Scenes/IntroRoom" to="Player" method="_on_room_enter"]
 [connection signal="question_room_orange" from="Scenes/IntroRoom" to="Scenes/QuestionRoomOrange" method="_on_room_start"]
 [connection signal="reset_player" from="Scenes/IntroRoom" to="Player" method="_on_reset_player"]
 [connection signal="hurt_player" from="Scenes/QuestionRoomOrange" to="Player" method="_on_hurt_player"]
+[connection signal="navigate" from="Scenes/QuestionRoomOrange" to="Player" method="_on_room_enter"]
 [connection signal="skull_room_bottom" from="Scenes/QuestionRoomOrange" to="Scenes/SkullRoomBottom" method="_on_room_start"]
 [connection signal="treasure_room_top" from="Scenes/QuestionRoomOrange" to="Scenes/TreasureRoomTop" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/TreasureRoomTop" to="Player" method="_on_room_enter"]
 [connection signal="question_room_green" from="Scenes/TreasureRoomTop" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomTop" to="." method="_on_room_start"]
 [connection signal="game_over_room" from="Scenes/SkullRoomBottom" to="Scenes/GameOverRoom" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/SkullRoomBottom" to="Player" method="_on_room_enter"]
 [connection signal="question_room_pink" from="Scenes/SkullRoomBottom" to="Scenes/QuestionRoomPink" method="_on_room_start"]
 [connection signal="treasure_room_bottom" from="Scenes/SkullRoomBottom" to="Scenes/TreasureRoomBottom" method="_on_room_start"]
 [connection signal="game_over_room" from="Scenes/QuestionRoomPink" to="Scenes/GameOverRoom" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/QuestionRoomPink" to="Player" method="_on_room_enter"]
 [connection signal="question_room_green" from="Scenes/QuestionRoomPink" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="treasure_room_top" from="Scenes/QuestionRoomPink" to="Scenes/TreasureRoomTop" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/QuestionRoomGreen" to="Player" method="_on_room_enter"]
 [connection signal="skull_room_top" from="Scenes/QuestionRoomGreen" to="Scenes/SkullRoomTop" method="_on_room_start"]
 [connection signal="treasure_room_bottom" from="Scenes/QuestionRoomGreen" to="Scenes/TreasureRoomBottom" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/TreasureRoomBottom" to="Player" method="_on_room_enter"]
 [connection signal="question_room_green" from="Scenes/TreasureRoomBottom" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomBottom" to="Scenes/QuestionRoomPink" method="_on_room_start"]
 [connection signal="skull_room_top" from="Scenes/TreasureRoomBottom" to="Scenes/SkullRoomTop" method="_on_room_start"]
 [connection signal="game_over_room" from="Scenes/SkullRoomTop" to="Scenes/GameOverRoom" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/SkullRoomTop" to="Player" method="_on_room_enter"]
 [connection signal="temple_room" from="Scenes/SkullRoomTop" to="Scenes/TempleRoom" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/TempleRoom" to="Player" method="_on_room_enter"]
 [connection signal="retry" from="Scenes/TempleRoom" to="Scenes/IntroRoom" method="_on_room_start"]
+[connection signal="navigate" from="Scenes/GameOverRoom" to="Player" method="_on_room_enter"]
 [connection signal="retry" from="Scenes/GameOverRoom" to="Scenes/IntroRoom" method="_on_room_start"]

@@ -19,3 +19,6 @@ func _on_pay_player(pay_value):
 func _on_reset_player():
 	health = 100
 	gold = 0
+
+func _on_room_enter(position: Vector2):
+	$Map_character.position = position

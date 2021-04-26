@@ -1,8 +1,9 @@
 """
 This room always deals 50hp of damage.
 """
-extends Node
+extends Position2D
 
+signal navigate
 signal temple_room
 signal game_over_room
 
@@ -14,4 +15,4 @@ func _ready():
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	pass
+	emit_signal("navigate", get_position())  # Move character on map

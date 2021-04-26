@@ -2,8 +2,9 @@
 A room with a random event.
 """
 
-extends Node
+extends Position2D
 
+signal navigate
 signal treasure_room_top
 signal skull_room_bottom
 signal hurt_player (hurt_value)
@@ -12,6 +13,8 @@ signal pay_player (pay_value)
 
 func _on_room_start():
 	"""Called when this room is entered"""
+	emit_signal("navigate", get_position())  # Move character on map
+	
 	randomize()
 	var outcome = randi() % 3
 	var dialog = null

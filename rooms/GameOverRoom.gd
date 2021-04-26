@@ -5,8 +5,9 @@ Has an option to restart the game,
 and a grimacing lemon.
 """
 
-extends Node
+extends Position2D
 
+signal navigate
 signal retry
 
 
@@ -17,4 +18,4 @@ func _ready():
 
 func _on_room_start():
 	"""Called when this room is entered"""
-	pass
+	emit_signal("navigate", get_position())  # Move character on map
