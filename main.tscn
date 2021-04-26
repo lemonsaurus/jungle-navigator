@@ -119,11 +119,13 @@ margin_left = 7.85724
 margin_top = 11.2246
 margin_right = 507.857
 margin_bottom = 96.2246
+value = 100.0
 texture_under = ExtResource( 18 )
 texture_over = ExtResource( 19 )
 texture_progress = ExtResource( 17 )
 tint_under = Color( 0.227451, 0.72549, 0.584314, 0.423529 )
 tint_over = Color( 0.239216, 0.94902, 0.686275, 1 )
+tint_progress = Color( 0.101961, 0.662745, 0.427451, 1 )
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
