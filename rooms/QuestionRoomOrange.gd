@@ -7,6 +7,7 @@ extends Position2D
 signal navigate
 signal treasure_room_top
 signal skull_room_bottom
+
 signal hurt_player (hurt_value)
 signal pay_player (pay_value)
 
@@ -28,7 +29,6 @@ func _on_room_start():
 			
 		1:
 			# You find 40 gold, and a Banana Scepter
-			emit_signal("pay_player", 40)
 			dialog = Dialogic.start("question_room_orange_treasure.json")
 			
 		2:
@@ -43,6 +43,8 @@ func _handle_dialogic_event(name):
 	"""Handle a signal created by Dialogic"""
 	if name == "hurt":
 		emit_signal("hurt_player", 45)
+	elif name == "gold":
+		emit_signal("pay_player", 40)
 	else:
 		# Navigate to next room
 		emit_signal(name)

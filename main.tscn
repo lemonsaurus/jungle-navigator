@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/Main_scene.png" type="Texture" id=1]
 [ext_resource path="res://rooms/SkullRoomBottom.gd" type="Script" id=2]
@@ -19,10 +19,29 @@
 [ext_resource path="res://assets/healthbar/texture.png" type="Texture" id=17]
 [ext_resource path="res://assets/healthbar/background.png" type="Texture" id=18]
 [ext_resource path="res://assets/healthbar/border.png" type="Texture" id=19]
+[ext_resource path="res://assets/coins/loins.png" type="Texture" id=20]
+[ext_resource path="res://addons/dialogic/Fonts/DefaultFont.tres" type="DynamicFont" id=21]
+[ext_resource path="res://Gold.gd" type="Script" id=22]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.229299, 0.624204, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.917647, 0.192157, 0.219608, 1, 0.917969, 0.863957, 0.0537872, 1, 0.101961, 0.662745, 0.427451, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Bob"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
+}
 
 [node name="Root" type="Node"]
 script = ExtResource( 13 )
@@ -111,8 +130,34 @@ gradient = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="Hud/HealthBar"]
 
+[node name="Coins" type="Node" parent="Hud"]
+
+[node name="loins" type="Sprite" parent="Hud/Coins"]
+position = Vector2( 896.052, 41.2434 )
+scale = Vector2( 0.528705, 0.528705 )
+texture = ExtResource( 20 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/Coins/loins"]
+autoplay = "Bob"
+anims/Bob = SubResource( 2 )
+
+[node name="Gold" type="Label" parent="Hud/Coins"]
+margin_left = 930.189
+margin_top = 19.6216
+margin_right = 1031.19
+margin_bottom = 64.6216
+custom_fonts/font = ExtResource( 21 )
+text = "0"
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Hud/Coins/Gold"]
+
 [connection signal="health_change" from="." to="Hud/HealthBar" method="update_health"]
 [connection signal="intro_room" from="." to="Scenes/IntroRoom" method="_on_room_start"]
+[connection signal="gold_change" from="Player" to="Hud/Coins/Gold" method="update_gold"]
 [connection signal="health_change" from="Player" to="Hud/HealthBar" method="update_health"]
 [connection signal="pink_error" from="Player" to="Scenes/QuestionRoomPink" method="_dont_visit_pink"]
 [connection signal="pink_ok" from="Player" to="Scenes/QuestionRoomPink" method="_visit_pink"]
@@ -121,9 +166,11 @@ gradient = SubResource( 1 )
 [connection signal="reset_player" from="Scenes/IntroRoom" to="Player" method="_on_reset_player"]
 [connection signal="hurt_player" from="Scenes/QuestionRoomOrange" to="Player" method="_on_hurt_player"]
 [connection signal="navigate" from="Scenes/QuestionRoomOrange" to="Player" method="_on_room_enter"]
+[connection signal="pay_player" from="Scenes/QuestionRoomOrange" to="Player" method="_on_pay_player"]
 [connection signal="skull_room_bottom" from="Scenes/QuestionRoomOrange" to="Scenes/SkullRoomBottom" method="_on_room_start"]
 [connection signal="treasure_room_top" from="Scenes/QuestionRoomOrange" to="Scenes/TreasureRoomTop" method="_on_room_start"]
 [connection signal="navigate" from="Scenes/TreasureRoomTop" to="Player" method="_on_room_enter"]
+[connection signal="pay_player" from="Scenes/TreasureRoomTop" to="Player" method="_on_pay_player"]
 [connection signal="question_room_green" from="Scenes/TreasureRoomTop" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomTop" to="." method="_on_room_start"]
 [connection signal="game_over_room" from="Scenes/SkullRoomBottom" to="Scenes/GameOverRoom" method="_on_room_start"]

@@ -1,11 +1,11 @@
 extends Node
 
 signal health_change (new_value)
+signal gold_change (new_value)
 
 signal pink_error
 signal pink_ok
 
-var gold = 0
 var visited_pink = false
 
 
@@ -14,7 +14,7 @@ func _on_hurt_player(hurt_value):
 
 
 func _on_pay_player(pay_value):
-	gold += pay_value
+	emit_signal("gold_change", pay_value)
 
 
 func _on_room_enter(position: Vector2, pink: bool = false, origin: String = ""):

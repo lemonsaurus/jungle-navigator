@@ -7,10 +7,7 @@ signal navigate
 signal question_room_green
 signal question_room_pink
 
-
-func _ready():
-	"""Called when the game starts"""
-	pass
+signal pay_player (pay_value)
 
 
 func _on_room_start():
@@ -18,16 +15,16 @@ func _on_room_start():
 	# Move character on map
 	emit_signal("navigate", get_position())  
 	yield(get_tree().create_timer(1.5), "timeout")
-	
-	emit_signal("pay_player", 80)
 
 	var dialog = Dialogic.start("treasure_room_top.json")
 	add_child(dialog)
 	dialog.connect("dialogic_signal", self, '_handle_dialogic_event')
 
-func _handle_dialogic_event(next_room):
+func _handle_dialogic_event(name):
 	"""Handle a signal created by Dialogic"""
-	if next_room == "question_room_pink":
-		emit_signal(next_room, "treasure")
+	if name == "gold":
+		emit_signal("pay_player", 80)
+	elif name == "question_room_pink":
+		emit_signal(name, "treasure")
 	else:
-		emit_signal(next_room)
+		emit_signal(name)
