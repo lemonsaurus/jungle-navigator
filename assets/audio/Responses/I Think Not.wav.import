@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/I Think Not.wav-e2542cad12bc65323bc610e76c79e13c.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/I Think Not.wav"
+dest_files=[ "res://.import/I Think Not.wav-e2542cad12bc65323bc610e76c79e13c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

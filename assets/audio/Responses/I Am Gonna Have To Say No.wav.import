@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/I Am Gonna Have To Say No.wav-180278bea6925853c444208b01645d2e.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/I Am Gonna Have To Say No.wav"
+dest_files=[ "res://.import/I Am Gonna Have To Say No.wav-180278bea6925853c444208b01645d2e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

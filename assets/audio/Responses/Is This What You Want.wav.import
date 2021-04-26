@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Is This What You Want.wav-c23566702be49f2c5b7d7cffbcc1b980.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/Is This What You Want.wav"
+dest_files=[ "res://.import/Is This What You Want.wav-c23566702be49f2c5b7d7cffbcc1b980.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

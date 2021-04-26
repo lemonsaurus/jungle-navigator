@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Are you sure.wav-1707a10267dd09689a8738b62b0ba046.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/Are you sure.wav"
+dest_files=[ "res://.import/Are you sure.wav-1707a10267dd09689a8738b62b0ba046.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

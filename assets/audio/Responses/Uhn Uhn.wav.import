@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Uhn Uhn.wav-0dfa6f1a7f49860130412e2ab35ea419.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/Uhn Uhn.wav"
+dest_files=[ "res://.import/Uhn Uhn.wav-0dfa6f1a7f49860130412e2ab35ea419.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

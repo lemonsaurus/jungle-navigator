@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Straight Ahead.wav-6f3415bc8baa2a82af44b5f6e1594381.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/Straight Ahead.wav"
+dest_files=[ "res://.import/Straight Ahead.wav-6f3415bc8baa2a82af44b5f6e1594381.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

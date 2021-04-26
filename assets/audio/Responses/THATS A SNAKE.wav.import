@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/THATS A SNAKE.wav-185f0e5231d709daa714c8e47d808105.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/THATS A SNAKE.wav"
+dest_files=[ "res://.import/THATS A SNAKE.wav-185f0e5231d709daa714c8e47d808105.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

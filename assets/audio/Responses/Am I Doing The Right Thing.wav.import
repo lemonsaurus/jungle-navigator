@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Am I Doing The Right Thing.wav-0fb945cb2cbbc23584eb75d1a62c8dc7.sample"
+
+[deps]
+
+source_file="res://assets/audio/Responses/Am I Doing The Right Thing.wav"
+dest_files=[ "res://.import/Am I Doing The Right Thing.wav-0fb945cb2cbbc23584eb75d1a62c8dc7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

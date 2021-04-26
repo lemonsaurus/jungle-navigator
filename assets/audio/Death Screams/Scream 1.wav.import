@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Scream 1.wav-90d6e600ec7ce43eea7694afda2b58a8.sample"
+
+[deps]
+
+source_file="res://assets/audio/Death Screams/Scream 1.wav"
+dest_files=[ "res://.import/Scream 1.wav-90d6e600ec7ce43eea7694afda2b58a8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walkie_Talkie_Static.wav-5a6129204f84a7f39cf95a96e282c9c2.sample"
+
+[deps]
+
+source_file="res://assets/audio/Walkie_Talkie_Static.wav"
+dest_files=[ "res://.import/Walkie_Talkie_Static.wav-5a6129204f84a7f39cf95a96e282c9c2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
