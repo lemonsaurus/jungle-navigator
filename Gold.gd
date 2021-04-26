@@ -1,19 +1,16 @@
 extends Label
 
-signal gold (value)
 
-
-func update_gold(val: int):
-	var new_val = int(self.text) + val
+func _on_gold_updated(new_gold: int):
+	var old_gold = int(self.text)
 
 	$Tween.interpolate_method(
 		self, "_update",
-		int(self.text), new_val, 1,
-		Tween.TRANS_LINEAR, Tween.EASE_IN
+		int(self.text), new_gold, 2.5,
+		Tween.TRANS_LINEAR, Tween.EASE_OUT
 	)
 	$Tween.start()
 
-	emit_signal("gold", new_val)
 
-func _update(text: int):
-	self.set_text(str(text))
+func _update(new_gold: int):
+	self.set_text(str(new_gold))
