@@ -16,10 +16,10 @@
 [ext_resource path="res://Player.gd" type="Script" id=14]
 [ext_resource path="res://assets/map_character.png" type="Texture" id=15]
 [ext_resource path="res://Healthbar.gd" type="Script" id=16]
-[ext_resource path="res://assets/healthbar/texture.png" type="Texture" id=17]
-[ext_resource path="res://assets/healthbar/background.png" type="Texture" id=18]
-[ext_resource path="res://assets/healthbar/border.png" type="Texture" id=19]
-[ext_resource path="res://assets/coins/loins.png" type="Texture" id=20]
+[ext_resource path="res://assets/healthbar/over.png" type="Texture" id=17]
+[ext_resource path="res://assets/healthbar/under.png" type="Texture" id=18]
+[ext_resource path="res://assets/healthbar/progress.png" type="Texture" id=19]
+[ext_resource path="res://assets/coins/new_loin.png" type="Texture" id=20]
 [ext_resource path="res://addons/dialogic/Fonts/DefaultFont.tres" type="DynamicFont" id=21]
 [ext_resource path="res://Gold.gd" type="Script" id=22]
 [ext_resource path="res://assets/blocks/top.png" type="Texture" id=23]
@@ -171,16 +171,14 @@ script = ExtResource( 11 )
 [node name="Hud" type="Node" parent="."]
 
 [node name="HealthBar" type="TextureProgress" parent="Hud"]
-margin_left = 7.85724
-margin_top = 11.2246
-margin_right = 507.857
-margin_bottom = 96.2246
+margin_left = 18.8572
+margin_top = 21.2246
+margin_right = 518.857
+margin_bottom = 106.225
 value = 100.0
 texture_under = ExtResource( 18 )
-texture_over = ExtResource( 19 )
-texture_progress = ExtResource( 17 )
-tint_under = Color( 0.227451, 0.72549, 0.584314, 0.423529 )
-tint_over = Color( 0.239216, 0.94902, 0.686275, 1 )
+texture_over = ExtResource( 17 )
+texture_progress = ExtResource( 19 )
 tint_progress = Color( 0.101961, 0.662745, 0.427451, 1 )
 script = ExtResource( 16 )
 __meta__ = {
@@ -194,7 +192,7 @@ gradient = SubResource( 1 )
 
 [node name="loins" type="Sprite" parent="Hud/Coins"]
 position = Vector2( 905.052, 48.2434 )
-scale = Vector2( 0.528705, 0.528705 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 20 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/Coins/loins"]

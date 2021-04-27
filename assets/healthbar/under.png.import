@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/loins.png-afd69fa16c828f26dba974205860c7ec.stex"
+path="res://.import/under.png-c2930ceca300c35ea1d000bda85b3e58.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coins/loins.png"
-dest_files=[ "res://.import/loins.png-afd69fa16c828f26dba974205860c7ec.stex" ]
+source_file="res://assets/healthbar/under.png"
+dest_files=[ "res://.import/under.png-c2930ceca300c35ea1d000bda85b3e58.stex" ]
 
 [params]
 
