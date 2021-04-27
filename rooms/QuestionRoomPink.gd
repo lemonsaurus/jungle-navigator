@@ -20,10 +20,16 @@ onready var player = $"../../Player"
 signal hurt_player (hurt_value)
 signal pay_player (pay_value)
 
+signal unhide (room)
 
 
 func _on_room_start():
 	"""Called when this room is entered"""
+	emit_signal("unhide", "SkullB")
+	emit_signal("unhide", "TTR")
+	emit_signal("unhide", "GQM")
+	emit_signal("unhide", "BTR")
+	
 	# Move character on map
 	emit_signal("navigate", get_position())
 	yield(get_tree().create_timer(1.5), "timeout")

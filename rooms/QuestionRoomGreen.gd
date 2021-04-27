@@ -12,6 +12,8 @@ signal skull_room_top
 signal hurt_player (hurt_value)
 signal heal_player (heal_value)
 
+signal unhide (room)
+
 onready var player = $"../../Player"
 var dialog
 var visited = false
@@ -19,6 +21,9 @@ var visited = false
 
 func _on_room_start():
 	"""Called when this room is entered"""
+	emit_signal("unhide", "BTR")
+	emit_signal("unhide", "SkullT")
+	
 	# Move character on map
 	emit_signal("navigate", get_position())  
 	yield(get_tree().create_timer(1.5), "timeout")

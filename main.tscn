@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Main_scene.png" type="Texture" id=1]
 [ext_resource path="res://rooms/SkullRoomBottom.gd" type="Script" id=2]
@@ -22,6 +22,11 @@
 [ext_resource path="res://assets/coins/loins.png" type="Texture" id=20]
 [ext_resource path="res://addons/dialogic/Fonts/DefaultFont.tres" type="DynamicFont" id=21]
 [ext_resource path="res://Gold.gd" type="Script" id=22]
+[ext_resource path="res://assets/blocks/top.png" type="Texture" id=23]
+[ext_resource path="res://assets/blocks/skull.png" type="Texture" id=24]
+[ext_resource path="res://assets/blocks/skull bottom.png" type="Texture" id=25]
+[ext_resource path="res://assets/blocks/bottom.png" type="Texture" id=26]
+[ext_resource path="res://Fog.gd" type="Script" id=27]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.229299, 0.624204, 1 )
@@ -69,6 +74,57 @@ position = Vector2( 265, 425 )
 texture = ExtResource( 15 )
 
 [node name="Tween" type="Tween" parent="Player"]
+
+[node name="Fog" type="Node" parent="."]
+script = ExtResource( 27 )
+
+[node name="SkullB" type="Sprite" parent="Fog"]
+position = Vector2( 434.439, 502.577 )
+scale = Vector2( 0.634897, 0.634897 )
+z_index = -1
+texture = ExtResource( 25 )
+
+[node name="Tween" type="Tween" parent="Fog/SkullB"]
+
+[node name="PQM" type="Sprite" parent="Fog"]
+position = Vector2( 450.069, 422.132 )
+scale = Vector2( 0.545916, 0.545916 )
+z_index = -1
+texture = ExtResource( 24 )
+
+[node name="Tween" type="Tween" parent="Fog/PQM"]
+
+[node name="TTR" type="Sprite" parent="Fog"]
+position = Vector2( 428.413, 356.191 )
+scale = Vector2( 0.579077, 0.579077 )
+z_index = -1
+texture = ExtResource( 23 )
+
+[node name="Tween" type="Tween" parent="Fog/TTR"]
+
+[node name="GQM" type="Sprite" parent="Fog"]
+position = Vector2( 527.684, 357.042 )
+scale = Vector2( 0.579077, 0.579077 )
+z_index = -1
+texture = ExtResource( 23 )
+
+[node name="Tween" type="Tween" parent="Fog/GQM"]
+
+[node name="SkullT" type="Sprite" parent="Fog"]
+position = Vector2( 634.342, 413.413 )
+scale = Vector2( 0.634897, 0.634897 )
+z_index = -1
+texture = ExtResource( 24 )
+
+[node name="Tween" type="Tween" parent="Fog/SkullT"]
+
+[node name="BTR" type="Sprite" parent="Fog"]
+position = Vector2( 524.909, 447.358 )
+scale = Vector2( 0.634897, 0.634897 )
+z_index = -1
+texture = ExtResource( 26 )
+
+[node name="Tween" type="Tween" parent="Fog/BTR"]
 
 [node name="Scenes" type="Node" parent="."]
 
@@ -171,31 +227,37 @@ __meta__ = {
 [connection signal="pay_player" from="Scenes/QuestionRoomOrange" to="Player" method="_on_pay_player"]
 [connection signal="skull_room_bottom" from="Scenes/QuestionRoomOrange" to="Scenes/SkullRoomBottom" method="_on_room_start"]
 [connection signal="treasure_room_top" from="Scenes/QuestionRoomOrange" to="Scenes/TreasureRoomTop" method="_on_room_start"]
+[connection signal="unhide" from="Scenes/QuestionRoomOrange" to="Fog" method="_handle"]
 [connection signal="navigate" from="Scenes/TreasureRoomTop" to="Player" method="_on_room_enter"]
 [connection signal="pay_player" from="Scenes/TreasureRoomTop" to="Player" method="_on_pay_player"]
 [connection signal="question_room_green" from="Scenes/TreasureRoomTop" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomTop" to="Scenes/QuestionRoomPink" method="_on_room_start"]
+[connection signal="unhide" from="Scenes/TreasureRoomTop" to="Fog" method="_handle"]
 [connection signal="game_over_room" from="Scenes/SkullRoomBottom" to="Scenes/GameOverRoom" method="_on_room_start"]
 [connection signal="hurt_player" from="Scenes/SkullRoomBottom" to="Player" method="_on_hurt_player"]
 [connection signal="navigate" from="Scenes/SkullRoomBottom" to="Player" method="_on_room_enter"]
 [connection signal="question_room_pink" from="Scenes/SkullRoomBottom" to="Scenes/QuestionRoomPink" method="_on_room_start"]
 [connection signal="treasure_room_bottom" from="Scenes/SkullRoomBottom" to="Scenes/TreasureRoomBottom" method="_on_room_start"]
+[connection signal="unhide" from="Scenes/SkullRoomBottom" to="Fog" method="_handle"]
 [connection signal="game_over_room" from="Scenes/QuestionRoomPink" to="Scenes/GameOverRoom" method="_on_room_start"]
 [connection signal="hurt_player" from="Scenes/QuestionRoomPink" to="Player" method="_on_hurt_player"]
 [connection signal="navigate" from="Scenes/QuestionRoomPink" to="Player" method="_on_room_enter"]
 [connection signal="pay_player" from="Scenes/QuestionRoomPink" to="Player" method="_on_pay_player"]
 [connection signal="question_room_green" from="Scenes/QuestionRoomPink" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="treasure_room_top" from="Scenes/QuestionRoomPink" to="Scenes/TreasureRoomTop" method="_on_room_start"]
+[connection signal="unhide" from="Scenes/QuestionRoomPink" to="Fog" method="_handle"]
 [connection signal="heal_player" from="Scenes/QuestionRoomGreen" to="Player" method="_on_heal_player"]
 [connection signal="hurt_player" from="Scenes/QuestionRoomGreen" to="Player" method="_on_hurt_player"]
 [connection signal="navigate" from="Scenes/QuestionRoomGreen" to="Player" method="_on_room_enter"]
 [connection signal="skull_room_top" from="Scenes/QuestionRoomGreen" to="Scenes/SkullRoomTop" method="_on_room_start"]
 [connection signal="treasure_room_bottom" from="Scenes/QuestionRoomGreen" to="Scenes/TreasureRoomBottom" method="_on_room_start"]
+[connection signal="unhide" from="Scenes/QuestionRoomGreen" to="Fog" method="_handle"]
 [connection signal="navigate" from="Scenes/TreasureRoomBottom" to="Player" method="_on_room_enter"]
 [connection signal="pay_player" from="Scenes/TreasureRoomBottom" to="Player" method="_on_pay_player"]
 [connection signal="question_room_green" from="Scenes/TreasureRoomBottom" to="Scenes/QuestionRoomGreen" method="_on_room_start"]
 [connection signal="question_room_pink" from="Scenes/TreasureRoomBottom" to="Scenes/QuestionRoomPink" method="_on_room_start"]
 [connection signal="skull_room_top" from="Scenes/TreasureRoomBottom" to="Scenes/SkullRoomTop" method="_on_room_start"]
+[connection signal="unhide" from="Scenes/TreasureRoomBottom" to="Fog" method="_handle"]
 [connection signal="update_inventory" from="Scenes/TreasureRoomBottom" to="Player" method="_on_update_inventory"]
 [connection signal="game_over_room" from="Scenes/SkullRoomTop" to="Scenes/GameOverRoom" method="_on_room_start"]
 [connection signal="hurt_player" from="Scenes/SkullRoomTop" to="Player" method="_on_hurt_player"]

@@ -10,12 +10,17 @@ signal treasure_room_bottom
 signal game_over_room
 signal hurt_player (hurt_value)
 
+signal unhide (room)
+
 var dialog
 onready var player = $"../../Player"
 
 
 func _on_room_start():
 	"""Called when this room is entered"""
+	emit_signal("unhide", "PQM")
+	emit_signal("unhide", "BTR")
+	
 	# Move character on map
 	emit_signal("navigate", get_position())
 	yield(get_tree().create_timer(1.5), "timeout")
