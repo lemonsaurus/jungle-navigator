@@ -1,3 +1,5 @@
+
+<a href="https://pythondiscord.com"><img width="240" align="right" src="https://raw.githubusercontent.com/lemonsaurus/jungle-navigator/main/assets/characters/Lemingway/lemingway_superpleased.png?raw=true"></a>
 ![Jungle Navigator](https://raw.githubusercontent.com/lemonsaurus/jungle-navigator/main/assets/logo.png)
 
 A game about searching a dangerous jungle for that delicious jungle treasure!
